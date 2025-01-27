@@ -14,7 +14,9 @@ public final class PistonQueueRejoin extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onPlayerQuit(PlayerQuitEvent event) {
         String player = event.getPlayer().getName();
+        String commandRemove = "lp user " + player + " permission unsettemp queue.priority";
         String command = "lp user " + player + " permission settemp queue.priority true 2min";
+        getServer().dispatchCommand(getServer().getConsoleSender(), commandRemove);
         getServer().dispatchCommand(getServer().getConsoleSender(), command);
     }
 
